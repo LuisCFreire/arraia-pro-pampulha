@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arraiá da Pró-Pampulha</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --azul:#0b3d7a;
+    --laranja:#f57c20;
+    --creme:#f5efe2;
+    --amarelo:#ffd447;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--creme);
+    font-family:Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(rgba(0,0,0,.03) 1px, transparent 1px);
+    background-size:14px 14px;
+    pointer-events:none;
+}
+
+.bandeiras{
+    height:70px;
+
+    background:
+    repeating-linear-gradient(
+      90deg,
+      var(--laranja) 0 60px,
+      var(--azul) 60px 120px,
+      var(--amarelo) 120px 180px
+    );
+
+    clip-path:polygon(
+    0 0,
+    100% 0,
+    100% 45%,
+    97% 100%,
+    94% 45%,
+    91% 100%,
+    88% 45%,
+    85% 100%,
+    82% 45%,
+    79% 100%,
+    0 45%);
+}
+
+.hero{
+    padding:40px 20px;
+}
+
+.cartaz{
+    max-width:1100px;
+    margin:auto;
+    text-align:center;
+}
+
+.logo-container{
+    margin-bottom:15px;
+}
+
+.logo{
+    max-width:700px;
+    width:95%;
+    height:auto;
+    display:block;
+    margin:0 auto 20px auto;
+
+    filter:
+        drop-shadow(0 5px 10px rgba(0,0,0,.15));
+}
+
+.arr{
+    font-family:'Oswald',sans-serif;
+    color:var(--azul);
+
+    font-size:clamp(3rem,7vw,5rem);
+
+    line-height:1.15;
+
+    letter-spacing:3px;
+
+    margin-bottom:20px;
+}
+
+.pro{
+    font-family:'Oswald',sans-serif;
+    color:var(--laranja);
+
+    font-size:clamp(4rem,10vw,7rem);
+
+    line-height:1.05;
+
+    letter-spacing:-1px;
+
+    text-transform:uppercase;
+
+    text-shadow:4px 4px 0 rgba(0,0,0,.08);
+
+    margin-bottom:30px;
+}
+
+.info{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.info span{
+    background:var(--azul);
+    color:white;
+    padding:12px 18px;
+    border-radius:8px;
+    font-weight:bold;
+    box-shadow:4px 4px 0 rgba(0,0,0,.12);
+}
+
+.info span:nth-child(odd){
+    transform:rotate(-2deg);
+}
+
+.info span:nth-child(even){
+    transform:rotate(2deg);
+}
+
+.slogan{
+    margin-top:25px;
+    font-family:'Patrick Hand',cursive;
+    font-size:2rem;
+    color:var(--azul);
+}
+
+.botao-associacao{
+    margin-top:40px;
+    display:inline-block;
+    background:var(--laranja);
+    color:white;
+    padding:22px 42px;
+    border-radius:14px;
+    font-size:1.25rem;
+    font-weight:700;
+    text-decoration:none;
+    border:4px solid white;
+    box-shadow:8px 8px 0 rgba(0,0,0,.18);
+    transition:.3s ease;
+}
+
+.botao-associacao:hover{
+    transform:translateY(-4px);
+    background:#082d5a;
+}
+
+.titulo{
+    text-align:center;
+    margin:60px 0 40px;
+
+    font-family:'Oswald',sans-serif;
+
+    color:var(--azul);
+
+    font-size:3rem;
+}
+
+.barracas{
+    max-width:1400px;
+    margin:auto;
+    padding:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:40px;
+}
+
+.barraca{
+    text-decoration:none;
+    background:var(--laranja);
+    color:white;
+    border:6px solid var(--azul);
+    border-radius:18px;
+    min-height:250px;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    box-shadow:12px 12px 0 rgba(0,0,0,.15);
+    transition:.3s ease;
+}
+
+.barraca:nth-child(odd){
+    transform:rotate(-1.5deg);
+}
+
+.barraca:nth-child(even){
+    transform:rotate(1.5deg);
+}
+
+.barraca:hover{
+    transform:translateY(-8px) scale(1.03);
+    box-shadow:16px 16px 0 rgba(0,0,0,.18);
+}
+
+.icone{
+    font-size:4rem;
+    margin-bottom:15px;
+}
+
+.barraca h3{
+    font-family:'Oswald',sans-serif;
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.descricao{
+    font-size:1rem;
+    font-weight:600;
+    line-height:1.4;
+    margin-bottom:18px;
+}
+
+.ver-cardapio{
+    margin-top:auto;
+    font-size:1.1rem;
+    font-weight:bold;
+}
+.evento{
+
+    max-width:1000px;
+
+    margin:80px auto;
+
+    padding:40px;
+
+    background:var(--azul);
+
+    color:white;
+
+    text-align:center;
+
+    border-radius:12px;
+}
+
+.evento h2{
+    color:var(--amarelo);
+    margin-bottom:20px;
+    font-family:'Oswald',sans-serif;
+}
+
+footer{
+    margin-top:80px;
+    background:var(--laranja);
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
+
+footer h3{
+    font-family:'Oswald',sans-serif;
+    font-size:2rem;
+}
+
+@media(max-width:768px){
+
+    .logo{
+        max-width:220px;
+    }
+
+    .titulo{
+        font-size:2rem;
+    }
+
+    .slogan{
+        font-size:1.5rem;
+    }
+
+    .arr{
+        font-size:2.8rem;
+    }
+
+    .pro{
+        font-size:3.8rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bandeiras"></div>
+
+<section class="hero">
+
+<div class="cartaz">
+
+<div class="logo-container">
+<img src="img/logo-pro-pampulha1.png"
+     alt="Associação Pró-Pampulha"
+     class="logo">
+</div>
+
+<div class="arr">
+2º ARRAIÁ DA
+</div>
+
+<div class="pro">
+PRÓ-PAMPULHA
+</div>
+
+<div class="info">
+<span>📅 05 DE JULHO</span>
+<span>⏰ 10H ÀS 17H</span>
+<span>📍 ALAMEDA DAS FALCATAS, 420</span>
+</div>
+
+<div class="slogan">
+A tradição que une. A comunidade que faz.
+</div>
+</div>
+</section>
+<h2 class="titulo">
+CARDÁPIOS DAS BARRACAS
+</h2>
+
+<section class="barracas">
+
+<a class="barraca" href="pdfs/Chef_Warley.pdf">
+    <h3>CHEF WARLEY</h3>
+    <div class="descricao">
+        Caldos • Paella Mineira • Espetinhos • Bebidas
+    </div>
+    <div class="ver-cardapio">
+        Ver Cardápio
+    </div>
+</a>
+
+<a class="barraca" href="pdfs/Churros.pdf">
+    <h3>DAYCHURROS GOURMET</h3>
+    <div class="descricao">
+        Churros • Canjica Doce • Pastel • Doces Diversos
+    </div>
+    <div class="ver-cardapio">
+         Ver Cardápio
+    </div>
+</a>
+
+<a class="barraca" href="pdfs/Conservando.pdf">
+    <h3>CONSERVANDO AMOR</h3>
+    <div class="descricao">
+        Antepastos • Acompanhamentos • Geleias • Temperos
+    </div>
+    <div class="ver-cardapio">
+        Ver Cardápio
+    </div>
+</a>
+
+<a class="barraca" href="pdfs/mi.pdf">
+    <h3>MICHELE E THIAGO</h3>
+    <div class="descricao">
+        Pipocas de Sal • Pipocas Doce • Milho Verde
+    </div>
+    <div class="ver-cardapio">
+        Ver Cardápio
+    </div>
+</a>
+
+<a class="barraca" href="pdfs/Chopp.pdf">
+    <h3>CHOPP NA VEIA</h3>
+    <div class="descricao">
+       Chopp Pilsen • Chopp Ipa  •  Chopp Vinho
+    </div>
+    <div class="ver-cardapio">
+        Ver Cardápio
+    </div>
+</a>
+
+<a class="barraca" href="pdfs/gol.pdf">
+    <h3>BAR GOL CONTRA</h3>
+    <div class="descricao">
+        Tropeiro • Porções • Cachorro Quente • Bebidas
+    </div>
+    <div class="ver-cardapio">
+       Ver Cardápio
+    </div>
+</a>
+
+<a class="barraca" href="pdfs/Rad.pdf">
+    <h3>RA DRINKS</h3>
+    <div class="descricao">
+        Drinks Com Álcool •  Drinks Sem Álcool 
+    </div>
+    <div class="ver-cardapio">
+       Ver Cardápio
+    </div>
+</a>
+
+<a class="barraca" href="pdfs/San.pdf">
+    <h3>Sanduiches</h3>
+    <div class="descricao">
+        Tradicional • Artesanal • Batata no Cone
+    </div>
+    <div class="ver-cardapio">
+        Ver Cardápio
+    </div>
+</a>
+
+</section>
+<section class="evento">
+
+<h2>SOBRE A ASSOCIAÇÃO</h2>
+
+<p>
+A Pró-Pampulha - Associação de Moradores e Empreendedores dos bairros São Luiz e São José foi criada, oficialmente, no dia 𝟭𝟲 𝗱𝗲 𝗷𝘂𝗹𝗵𝗼 de 2024, dia que comemoramos os 8 anos da conquista do título de 𝗣𝗮𝘁𝗿𝗶𝗺ô𝗻𝗶𝗼 𝗠𝘂𝗻𝗱𝗶𝗮𝗹, conferido pela 𝗨𝗻𝗲𝘀𝗰𝗼 em julho de 2016.
+
+Moradores e empreendedores da região, altamente engajados e atuantes formam um grupo competente, visionário, empático e sensibilizado com as demandas da região, respeitando as opiniões, e promovendo debates éticos e transparentes entre os VIZINHOS.
+
+</p>
+
+</div>
+
+<a class="botao-associacao"
+   href="https://forms.gle/hqcWFHciBLycdyrC9"
+   target="_blank">
+
+QUERO ME ASSOCIAR
+
+</a>
+
+</div>
+
+
+</section>
+
+<footer>
+
+<h3>ASSOCIAÇÃO PRÓ-PAMPULHA</h3>
+
+<p>
+Nossa história • Nosso bairro • Nossa comunidade
+</p>
+
+</footer>
+
+</body>
+</html>
